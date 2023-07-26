@@ -13,8 +13,13 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   listTeam(){
-    return this.http.get<Teams[]>(UserService.baseUrl+"/teams");
+    return this.http.get<Teams[]>(UserService.baseUrl+"/teams/");
   }
+
+  async listTeamById(tmId : number) {
+    return await this.http.get<Teams>(UserService.baseUrl+"/teams/"+tmId);
+  }
+
   listPlayer(tmId:Number):Players[]{
     let team:Teams=new Teams();
      this.http.get<Teams>(UserService.baseUrl+"/teams/"+tmId).subscribe(data=>team=data);

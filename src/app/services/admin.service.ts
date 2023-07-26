@@ -17,9 +17,8 @@ export class AdminService {
     this.http.post(AdminService.baseUrl+"/teams/",tm).subscribe(data=>data=tm);
   }
 
-  persistPlayer(plyr:Players[]){
-    let tm:Teams=new Teams();
-    this.http.get<Teams>(AdminService.baseUrl+"/teams")
-  
+  mod(tm:Teams){
+    this.http.put(AdminService.baseUrl+"/teams/",tm).subscribe(data=>data=tm);
   }
+
 }
