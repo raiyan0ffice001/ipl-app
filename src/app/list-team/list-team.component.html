@@ -1,1 +1,35 @@
-<p>list-team works!</p>
+
+<table class="table table-dark table-striped" *ngFor="let t of team">
+    <thead>
+        <tr>
+            <th >Player Id</th><th >Player Name</th><th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{t.id}}</td>
+            <td>{{t.name}}</td>
+            <td>{{t.city}}</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table>
+                    <thead>
+                        <tr><th>Name</th><th>Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of t.player">
+                            <td>{{ p.name }}</td>
+                            <td>{{ p.role }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>                
+        </tr>
+    </tbody>
+</table>
+    
+                    
+            <!-- <td><button class="btn btn-danger" (click)="delete(e.empno)">Delete</button></td>
+            <td><button class="btn btn-sucees" style="color:white; background-color: green;" (click)="update(i)">Update</button></td> -->
+            
